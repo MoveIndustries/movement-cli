@@ -8,7 +8,7 @@ export const runCLI = async (args: string[] = []) => {
   const path = getLocalBinPath();
   if (!existsSync(path)) {
     console.log(
-      "Aptos CLI not installed, run `npx aptos --install` to install"
+      "Movement CLI not installed, run `npx @moveindustries/movement-cli --install` to install"
     );
     return;
   }

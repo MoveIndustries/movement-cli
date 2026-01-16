@@ -1,28 +1,28 @@
 {
-  "name": "@aptos-labs/aptos-cli",
+  "name": "@moveindustries/movement-cli",
   "version": "1.1.0",
-  "description": "Aptos CLI available from npmjs",
+  "description": "Movement CLI available from npmjs",
   "bin": {
-    "aptos": "./dist/aptos.js"
+    "movement": "./dist/movement.js"
   },
   "type": "module",
-  "author": "aptoslabs.com",
+  "author": "Move Industries",
   "keywords": [
-    "aptos node cli",
-    "aptos"
+    "movement node cli",
+    "movement"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/aptos-labs/aptos-cli"
+    "url": "https://github.com/moveindustries/movement-cli"
   },
   "bugs": {
-    "url": "https://github.com/aptos-labs/aptos-cli/issues"
+    "url": "https://github.com/moveindustries/movement-cli/issues"
   },
   "license": "Apache-2.0",
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && tsc",
-    "dev": "npm run build && node ./dist/aptos.js"
+    "dev": "npm run build && node ./dist/movement.js"
   },
   "files": [
     "bin",

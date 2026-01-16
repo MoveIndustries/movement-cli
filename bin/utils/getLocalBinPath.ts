@@ -1,28 +1,35 @@
 import { dirname } from "path";
-import { executableIsAvailable } from "./aptosExecutableIsAvailable.js";
-import { getCliPathBrew } from "./brewOperations.js";
-import { PNAME } from "./consts.js";
 import { getOS } from "./getUserOs.js";
 import { fileURLToPath } from "url";
 
+// Binary name is "movement" (not "movement-cli")
+const BINARY_NAME = "movement";
+
 export const getLocalBinPath = () => {
-  let path;
   const os = getOS();
-  if (os === "MacOS") {
-    // Confirm brew is installed.
-    const brewInstalled = executableIsAvailable("brew");
-    if (!brewInstalled) {
-      throw "Please install brew to continue: https://brew.sh/";
-    }
-    try {
-      path = getCliPathBrew();
-    } catch (e) {
-      path = "";
-    }
-  } else if (os === "Windows") {
-    path = `${dirname(fileURLToPath(import.meta.url))}\\${PNAME}.exe`;
+  const baseDir = dirname(fileURLToPath(import.meta.url));
+
+  if (os === "Windows") {
+    return `${baseDir}\\${BINARY_NAME}.exe`;
   } else {
-    path = `${dirname(fileURLToPath(import.meta.url))}/${PNAME}`;
+    // MacOS and Linux use the same path structure
+    return `${baseDir}/${BINARY_NAME}`;
   }
-  return path;
 };
+
+// === OLD BREW-BASED CODE (kept for reference) ===
+// import { executableIsAvailable } from "./movementExecutableIsAvailable.js";
+// import { getCliPathBrew } from "./brewOperations.js";
+// import { PNAME } from "./consts.js";
+//
+// if (os === "MacOS") {
+//   const brewInstalled = executableIsAvailable("brew");
+//   if (!brewInstalled) {
+//     throw "Please install brew to continue: https://brew.sh/";
+//   }
+//   try {
+//     path = getCliPathBrew();
+//   } catch (e) {
+//     path = "";
+//   }
+// }

@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+// Movement CLI npm wrapper
+// Downloads and runs the Movement CLI binary from GitHub releases.
+// Supports MacOS (ARM64 & x86_64) and Linux (x86_64).
+
+// === OLD APTOS COMMENT (kept for reference) ===
 // On MacOS we install the CLI with brew. There are two main reasons for this:
 // 1. Brew builds the CLI for the native CPU architecture for the user, which
 //    eliminates any issues arising from using x86 binaries on ARM machines.
@@ -15,7 +20,7 @@ import { parseCommandOptions } from "./utils/parseCommandOptions.js";
 import { runCLI } from "./tasks/run.js";
 
 program
-  .name("aptos")
+  .name("movement")
   .helpOption(false)
   .option("-i, --install", "install the latest version of the CLI")
   .option("-u, --update", "update the CLI to the latest version")

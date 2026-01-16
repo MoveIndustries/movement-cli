@@ -1,4 +1,6 @@
-bin/aptos-cli*
+bin/movement-cli*
 package-lock.json
 node_modules
 dist
+.movement
+.aptos
